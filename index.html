@@ -1,6 +1,26 @@
 <!doctype html>
 <html>
-  <head><meta charset="utf-8"><title>Hello</title></head>
-  <body><h1>It works!</h1></body>
-</html>
+  <head>
+    <meta charset="utf-8">
+    <title>Custom Cargo Registry</title>
+  </head>
+  <body>
+    <h1>Custom Cargo Registry (GitHub Pages)</h1>
+    <p>This site hosts a sparse Cargo registry index and crate downloads.</p>
 
+    <h2>Configure Cargo</h2>
+    <p>Create or update <code>.cargo/config.toml</code>:</p>
+    <pre><code>[registries]
+my-registry = { index = "sparse+https://acciente.github.io/custom-rust-registry.github.io/" }
+</code></pre>
+
+    <h2>Use the demo crate</h2>
+    <pre><code>[dependencies]
+hello-world = { version = "0.1.0", registry = "my-registry" }
+</code></pre>
+
+    <p>The crate exposes <code>hello_world::hello()</code> which returns
+      <code>"hello world"</code>.
+    </p>
+  </body>
+</html>
